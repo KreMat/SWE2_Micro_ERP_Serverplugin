@@ -30,6 +30,8 @@ public class Contact extends AbstractEntity {
 	private List<Address> addresses = new ArrayList<Address>();
 
 	private List<Invoice> invoices = new ArrayList<Invoice>();
+	
+	private Contact company;
 
 	/**
 	 * @return the companyname
@@ -164,6 +166,20 @@ public class Contact extends AbstractEntity {
 	 */
 	public void setInvoices(List<Invoice> invoices) {
 		this.invoices = invoices;
+	}
+
+	/**
+	 * @return the company
+	 */
+	public Contact getCompany() {
+		return company;
+	}
+
+	/**
+	 * @param company the company to set
+	 */
+	public void setCompany(Contact company) {
+		this.company = company;
 	}
 
 }
