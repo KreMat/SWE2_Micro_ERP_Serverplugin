@@ -13,9 +13,9 @@ import at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Contact;
  */
 public interface IContactDao {
 
-	public Contact create(Contact c);
+	public void create(Contact c);
 
-	public Contact update(Contact c);
+	public void update(Contact c);
 
 	public Contact read(long id);
 

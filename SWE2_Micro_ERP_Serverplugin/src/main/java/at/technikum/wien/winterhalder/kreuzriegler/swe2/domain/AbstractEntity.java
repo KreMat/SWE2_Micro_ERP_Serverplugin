@@ -7,6 +7,9 @@ package at.technikum.wien.winterhalder.kreuzriegler.swe2.domain;
  */
 public abstract class AbstractEntity {
 
+	// Contract
+	public static final String ID = "id";
+
 	protected long id;
 
 	public long getId() {

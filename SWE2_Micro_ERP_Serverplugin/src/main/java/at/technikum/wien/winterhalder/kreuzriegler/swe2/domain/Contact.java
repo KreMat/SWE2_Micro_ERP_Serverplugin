@@ -3,8 +3,8 @@
  */
 package at.technikum.wien.winterhalder.kreuzriegler.swe2.domain;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -12,6 +12,17 @@ import java.util.List;
  * 
  */
 public class Contact extends AbstractEntity {
+
+	// CONTRACT
+	public static final String COMPANYNAME = "companyname";
+	public static final String UID = "uid";
+	public static final String TITLE = "title";
+	public static final String FIRSTNAME = "firstname";
+	public static final String LASTNAME = "lastname";
+	public static final String SUFFIX = "suffix";
+	public static final String BIRTHDAY = "birthday";
+	public static final String FK_CONTACT_ID = "fk_contact_id";
+	public static final String TABLE = "contact";
 
 	private String companyname;
 
@@ -25,13 +36,13 @@ public class Contact extends AbstractEntity {
 
 	private String suffix;
 
-	private Calendar birthday;
+	private Timestamp birthday;
 
 	private List<Address> addresses = new ArrayList<Address>();
 
 	private List<Invoice> invoices = new ArrayList<Invoice>();
-	
-	private Contact company;
+
+	private Long companyId;
 
 	/**
 	 * @return the companyname
@@ -124,21 +135,6 @@ public class Contact extends AbstractEntity {
 	}
 
 	/**
-	 * @return the birthday
-	 */
-	public Calendar getBirthday() {
-		return birthday;
-	}
-
-	/**
-	 * @param birthday
-	 *            the birthday to set
-	 */
-	public void setBirthday(Calendar birthday) {
-		this.birthday = birthday;
-	}
-
-	/**
 	 * @return the addresses
 	 */
 	public List<Address> getAddresses() {
@@ -169,17 +165,33 @@ public class Contact extends AbstractEntity {
 	}
 
 	/**
-	 * @return the company
+	 * @return the companyId
 	 */
-	public Contact getCompany() {
-		return company;
+	public Long getCompanyId() {
+		return companyId;
 	}
 
 	/**
-	 * @param company the company to set
+	 * @param companyId
+	 *            the companyId to set
 	 */
-	public void setCompany(Contact company) {
-		this.company = company;
+	public void setCompanyId(Long companyId) {
+		this.companyId = companyId;
+	}
+
+	/**
+	 * @return the birthday
+	 */
+	public Timestamp getBirthday() {
+		return birthday;
+	}
+
+	/**
+	 * @param birthday
+	 *            the birthday to set
+	 */
+	public void setBirthday(Timestamp birthday) {
+		this.birthday = birthday;
 	}
 
 }

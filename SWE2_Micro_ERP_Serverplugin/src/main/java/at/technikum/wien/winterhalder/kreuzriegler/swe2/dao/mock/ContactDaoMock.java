@@ -22,9 +22,8 @@ public class ContactDaoMock implements IContactDao {
 	 * (at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Contact)
 	 */
 	@Override
-	public Contact create(Contact c) {
+	public void create(Contact c) {
 		// TODO Auto-generated method stub
-		return null;
 	}
 
 	/*
@@ -35,9 +34,8 @@ public class ContactDaoMock implements IContactDao {
 	 * (at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Contact)
 	 */
 	@Override
-	public Contact update(Contact c) {
+	public void update(Contact c) {
 		// TODO Auto-generated method stub
-		return null;
 	}
 
 	/*
