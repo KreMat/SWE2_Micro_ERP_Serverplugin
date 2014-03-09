@@ -5,6 +5,7 @@ package at.technikum.wien.winterhalder.kreuzriegler.swe2.factory;
 
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IContactDao;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IInvoiceDao;
+import at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.impl.ContactDao;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.mock.ContactDaoMock;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.mock.InvoiceDaoMock;
 
@@ -14,9 +15,9 @@ import at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.mock.InvoiceDaoMock;
  */
 public class DaoFactory {
 
-	private static final boolean MOCK = true;
+	private static final boolean MOCK = false;
 
-	public IInvoiceDao createInvoiceDao() {
+	public static IInvoiceDao createInvoiceDao() {
 		if (MOCK) {
 			return new InvoiceDaoMock();
 		}
@@ -24,12 +25,11 @@ public class DaoFactory {
 		return null;
 	}
 
-	public IContactDao createContactDao() {
+	public static IContactDao createContactDao() {
 		if (MOCK) {
 			return new ContactDaoMock();
 		}
-		// TODO return Impl
-		return null;
+		return new ContactDao();
 	}
 
 }

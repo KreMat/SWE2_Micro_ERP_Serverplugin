@@ -3,6 +3,7 @@
  */
 package at.technikum.wien.winterhalder.kreuzriegler.swe2;
 
+import at.technikum.wien.winterhalder.kreuzriegler.swe2.factory.CommandFactory;
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.domain.interfaces.Request;
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.domain.interfaces.Response;
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.domain.interfaces.Uri;
@@ -26,8 +27,7 @@ public class MicroErpPlugin implements Pluggable {
 	 */
 	@Override
 	public Response request(Uri uri, Request request) {
-		// TODO Auto-generated method stub
-		return null;
+		return CommandFactory.createCommand(uri).handleRequest(uri, request);
 	}
 
 	/*
@@ -39,8 +39,7 @@ public class MicroErpPlugin implements Pluggable {
 	 */
 	@Override
 	public void start() {
-		// TODO Auto-generated method stub
-
+		// Nothing todo
 	}
 
 	/*
@@ -52,8 +51,7 @@ public class MicroErpPlugin implements Pluggable {
 	 */
 	@Override
 	public void stop() {
-		// TODO Auto-generated method stub
-
+		// Nothing todo
 	}
 
 }
