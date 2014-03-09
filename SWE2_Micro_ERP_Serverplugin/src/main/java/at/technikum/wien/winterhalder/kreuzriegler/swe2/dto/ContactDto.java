@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 
 public class ContactDto {
 
+	private long id;
+
 	private String companyname;
 
 	private String uid;
@@ -138,6 +140,21 @@ public class ContactDto {
 	 */
 	public void setCompanyId(Long companyId) {
 		this.companyId = companyId;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public long getId() {
+		return id;
+	}
+
+	/**
+	 * @param id
+	 *            the id to set
+	 */
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }
