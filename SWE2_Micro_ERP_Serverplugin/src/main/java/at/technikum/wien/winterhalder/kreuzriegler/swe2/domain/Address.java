@@ -9,6 +9,14 @@ package at.technikum.wien.winterhalder.kreuzriegler.swe2.domain;
  */
 public class Address extends AbstractEntity {
 
+	// CONTRACT
+	public static final String TYPE = "type";
+	public static final String ZIP = "zip";
+	public static final String CITY = "city";
+	public static final String STREET = "street";
+	public static final String FK_CONTACT_ID = "contact_id";
+	public static final String TABLE = "address";
+
 	private AddressType type;
 
 	private String zip;
@@ -16,6 +24,8 @@ public class Address extends AbstractEntity {
 	private String city;
 
 	private String street;
+
+	private long contactId;
 
 	/**
 	 * @return the type
@@ -75,6 +85,21 @@ public class Address extends AbstractEntity {
 	 */
 	public void setStreet(String street) {
 		this.street = street;
+	}
+
+	/**
+	 * @return the contactId
+	 */
+	public long getContactId() {
+		return contactId;
+	}
+
+	/**
+	 * @param contactId
+	 *            the contactId to set
+	 */
+	public void setContactId(long contactId) {
+		this.contactId = contactId;
 	}
 
 }

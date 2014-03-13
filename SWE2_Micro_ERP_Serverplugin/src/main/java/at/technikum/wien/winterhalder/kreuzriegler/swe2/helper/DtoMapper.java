@@ -7,12 +7,12 @@ import org.apache.commons.beanutils.BeanUtils;
 
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Contact;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.dto.ContactDto;
-import at.technikum.wien.winterhalder.kreuzriegler.swe2.dto.GetAllContactsDto;
+import at.technikum.wien.winterhalder.kreuzriegler.swe2.response.GetAllContactsResponse;
 
 public class DtoMapper {
 
-	public GetAllContactsDto mapAllContacts(List<Contact> contacts) {
-		GetAllContactsDto dto = new GetAllContactsDto();
+	public GetAllContactsResponse mapAllContacts(List<Contact> contacts) {
+		GetAllContactsResponse dto = new GetAllContactsResponse();
 		for (Contact c : contacts) {
 			dto.getContacts().add(mapContact(c));
 		}

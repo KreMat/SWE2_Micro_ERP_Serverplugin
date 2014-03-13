@@ -4,8 +4,6 @@
 package at.technikum.wien.winterhalder.kreuzriegler.swe2.domain;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Matthias
@@ -37,10 +35,6 @@ public class Contact extends AbstractEntity {
 	private String suffix;
 
 	private Timestamp birthday;
-
-	private List<Address> addresses = new ArrayList<Address>();
-
-	private List<Invoice> invoices = new ArrayList<Invoice>();
 
 	private Long companyId;
 
@@ -132,36 +126,6 @@ public class Contact extends AbstractEntity {
 	 */
 	public void setSuffix(String suffix) {
 		this.suffix = suffix;
-	}
-
-	/**
-	 * @return the addresses
-	 */
-	public List<Address> getAddresses() {
-		return addresses;
-	}
-
-	/**
-	 * @param addresses
-	 *            the addresses to set
-	 */
-	public void setAddresses(List<Address> addresses) {
-		this.addresses = addresses;
-	}
-
-	/**
-	 * @return the invoices
-	 */
-	public List<Invoice> getInvoices() {
-		return invoices;
-	}
-
-	/**
-	 * @param invoices
-	 *            the invoices to set
-	 */
-	public void setInvoices(List<Invoice> invoices) {
-		this.invoices = invoices;
 	}
 
 	/**

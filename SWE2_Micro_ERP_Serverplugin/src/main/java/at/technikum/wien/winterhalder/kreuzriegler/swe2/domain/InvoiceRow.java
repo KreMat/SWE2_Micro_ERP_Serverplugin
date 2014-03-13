@@ -17,6 +17,8 @@ public class InvoiceRow extends AbstractEntity {
 
 	private double ust;
 
+	private long invoiceId;
+
 	/**
 	 * @return the name
 	 */
@@ -75,6 +77,21 @@ public class InvoiceRow extends AbstractEntity {
 	 */
 	public void setUst(double ust) {
 		this.ust = ust;
+	}
+
+	/**
+	 * @return the invoiceId
+	 */
+	public long getInvoiceId() {
+		return invoiceId;
+	}
+
+	/**
+	 * @param invoiceId
+	 *            the invoiceId to set
+	 */
+	public void setInvoiceId(long invoiceId) {
+		this.invoiceId = invoiceId;
 	}
 
 }

@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="/SWE1_Webserver/commons-beanutils-1.9.1.jar"/>
 	<classpathentry kind="lib" path="/SWE1_Webserver/gson-2.2.4.jar"/>
 	<classpathentry kind="lib" path="/SWE1_Webserver/commons-collections-3.2.1.jar"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/SWE2_Micro_ERP_Schnittstelle"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

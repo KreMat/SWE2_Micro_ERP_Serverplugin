@@ -9,8 +9,8 @@ import com.google.gson.Gson;
 
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.MicroERPConstants;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.business.ContactService;
-import at.technikum.wien.winterhalder.kreuzriegler.swe2.dto.GetAllContactsDto;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.helper.DtoMapper;
+import at.technikum.wien.winterhalder.kreuzriegler.swe2.response.GetAllContactsResponse;
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.ResponseBuilder;
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.domain.enums.StatusCode;
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.domain.interfaces.Request;
@@ -45,7 +45,7 @@ public class GetAllContactsCommand implements ICommand {
 	@Override
 	public Response handleRequest(Uri uri, Request request) {
 		Response r = ResponseBuilder.buildResponse(StatusCode.STATUS_200);
-		GetAllContactsDto dto = dtoMapper.mapAllContacts(contactService
+		GetAllContactsResponse dto = dtoMapper.mapAllContacts(contactService
 				.loadAllContacts());
 		Gson gson = new Gson();
 		String json = gson.toJson(dto);

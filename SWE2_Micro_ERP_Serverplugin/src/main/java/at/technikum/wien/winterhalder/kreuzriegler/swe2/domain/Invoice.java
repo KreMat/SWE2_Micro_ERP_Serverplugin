@@ -23,6 +23,8 @@ public class Invoice extends AbstractEntity {
 
 	private String information;
 
+	private long contactId;
+
 	private List<InvoiceRow> rows = new ArrayList<InvoiceRow>();
 
 	/**
@@ -113,6 +115,21 @@ public class Invoice extends AbstractEntity {
 	 */
 	public void setRows(List<InvoiceRow> rows) {
 		this.rows = rows;
+	}
+
+	/**
+	 * @return the contactId
+	 */
+	public long getContactId() {
+		return contactId;
+	}
+
+	/**
+	 * @param contactId
+	 *            the contactId to set
+	 */
+	public void setContactId(long contactId) {
+		this.contactId = contactId;
 	}
 
 }
