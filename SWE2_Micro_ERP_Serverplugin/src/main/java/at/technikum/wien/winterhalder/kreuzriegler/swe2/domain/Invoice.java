@@ -3,7 +3,6 @@
  */
 package at.technikum.wien.winterhalder.kreuzriegler.swe2.domain;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,11 +12,20 @@ import java.util.List;
  */
 public class Invoice extends AbstractEntity {
 
+	// CONTRACT
+	public static final String NR = "nr";
+	public static final String CREATIONDATE = "creationdate";
+	public static final String DUEDATE = "duedate";
+	public static final String COMMENT = "comment";
+	public static final String INFORMATION = "information";
+	public static final String FK_CONTACT_ID = "contact_id";
+	public static final String TABLE = "invoice";
+
 	private String nr;
 
-	private Timestamp creationdate;
+	private long creationdate;
 
-	private Timestamp duedate;
+	private long duedate;
 
 	private String comment;
 
@@ -45,7 +53,7 @@ public class Invoice extends AbstractEntity {
 	/**
 	 * @return the creationdate
 	 */
-	public Timestamp getCreationdate() {
+	public long getCreationdate() {
 		return creationdate;
 	}
 
@@ -53,14 +61,14 @@ public class Invoice extends AbstractEntity {
 	 * @param creationdate
 	 *            the creationdate to set
 	 */
-	public void setCreationdate(Timestamp creationdate) {
+	public void setCreationdate(long creationdate) {
 		this.creationdate = creationdate;
 	}
 
 	/**
 	 * @return the duedate
 	 */
-	public Timestamp getDuedate() {
+	public long getDuedate() {
 		return duedate;
 	}
 
@@ -68,7 +76,7 @@ public class Invoice extends AbstractEntity {
 	 * @param duedate
 	 *            the duedate to set
 	 */
-	public void setDuedate(Timestamp duedate) {
+	public void setDuedate(long duedate) {
 		this.duedate = duedate;
 	}
 

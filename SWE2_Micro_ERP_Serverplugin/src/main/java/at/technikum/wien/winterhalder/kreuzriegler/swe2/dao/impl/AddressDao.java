@@ -125,19 +125,7 @@ public class AddressDao extends AbstractDao implements IAddressDao {
 
 	@Override
 	public void delete(long id) {
-		Connection con = getConnection();
-		try {
-			PreparedStatement stmt = con.prepareStatement("DELETE FROM "
-					+ TABLE + " WHERE " + ID + " = ?;");
-
-			stmt.setLong(1, id);
-			stmt.execute();
-			stmt.close();
-		} catch (SQLException e) {
-			throw new IllegalStateException(e);
-		} finally {
-			closeConnection();
-		}
+		delete(TABLE, id);
 	}
 
 	@Override
@@ -166,5 +154,4 @@ public class AddressDao extends AbstractDao implements IAddressDao {
 			closeConnection();
 		}
 	}
-
 }

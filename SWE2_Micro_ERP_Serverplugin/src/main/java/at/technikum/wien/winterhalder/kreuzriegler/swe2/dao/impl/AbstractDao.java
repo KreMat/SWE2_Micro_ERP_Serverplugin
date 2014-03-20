@@ -3,9 +3,12 @@
  */
 package at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.impl;
 
+import static at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.AbstractEntity.ID;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -69,6 +72,22 @@ public abstract class AbstractDao {
 				throw new IllegalStateException(e);
 			}
 			conn = null;
+		}
+	}
+
+	protected void delete(String table, long id) {
+		Connection con = getConnection();
+		try {
+			PreparedStatement stmt = con.prepareStatement("DELETE FROM "
+					+ table + " WHERE " + ID + " = ?;");
+
+			stmt.setLong(1, id);
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			throw new IllegalStateException(e);
+		} finally {
+			closeConnection();
 		}
 	}
 

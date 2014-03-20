@@ -13,14 +13,14 @@ import at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Invoice;
  */
 public interface IInvoiceDao {
 
-	public Invoice create(Invoice i);
+	public void create(Invoice i);
 
-	public Invoice update(Invoice i);
+	public void update(Invoice i);
 
 	public Invoice read(long id);
 
 	public void delete(long id);
 
-	public List<Invoice> loadAllInvoices();
+	public List<Invoice> loadInvoicesByContactId(long contactId);
 
 }

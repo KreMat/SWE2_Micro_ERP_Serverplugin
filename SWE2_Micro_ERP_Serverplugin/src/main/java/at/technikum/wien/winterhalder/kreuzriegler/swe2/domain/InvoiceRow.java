@@ -9,13 +9,21 @@ package at.technikum.wien.winterhalder.kreuzriegler.swe2.domain;
  */
 public class InvoiceRow extends AbstractEntity {
 
+	// CONTRACT
+	public static final String NAME = "rowname";
+	public static final String AMOUNT = "amount";
+	public static final String PRICE = "price";
+	public static final String UST = "ust";
+	public static final String FK_INVOICE_ID = "invoice_id";
+	public static final String TABLE = "invoicerow";
+
 	private String name;
 
-	private double amount;
+	private Double amount;
 
-	private double price;
+	private Double price;
 
-	private double ust;
+	private Double ust;
 
 	private long invoiceId;
 
@@ -37,7 +45,7 @@ public class InvoiceRow extends AbstractEntity {
 	/**
 	 * @return the amount
 	 */
-	public double getAmount() {
+	public Double getAmount() {
 		return amount;
 	}
 
@@ -52,7 +60,7 @@ public class InvoiceRow extends AbstractEntity {
 	/**
 	 * @return the price
 	 */
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
@@ -67,7 +75,7 @@ public class InvoiceRow extends AbstractEntity {
 	/**
 	 * @return the ust
 	 */
-	public double getUst() {
+	public Double getUst() {
 		return ust;
 	}
 

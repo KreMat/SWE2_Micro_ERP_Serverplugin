@@ -22,9 +22,8 @@ public class InvoiceDaoMock implements IInvoiceDao {
 	 * (at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Invoice)
 	 */
 	@Override
-	public Invoice create(Invoice i) {
+	public void create(Invoice i) {
 		// TODO Auto-generated method stub
-		return null;
 	}
 
 	/*
@@ -35,9 +34,8 @@ public class InvoiceDaoMock implements IInvoiceDao {
 	 * (at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Invoice)
 	 */
 	@Override
-	public Invoice update(Invoice i) {
+	public void update(Invoice i) {
 		// TODO Auto-generated method stub
-		return null;
 	}
 
 	/*
@@ -73,7 +71,7 @@ public class InvoiceDaoMock implements IInvoiceDao {
 	 * loadAllInvoices()
 	 */
 	@Override
-	public List<Invoice> loadAllInvoices() {
+	public List<Invoice> loadInvoicesByContactId(long contactId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
