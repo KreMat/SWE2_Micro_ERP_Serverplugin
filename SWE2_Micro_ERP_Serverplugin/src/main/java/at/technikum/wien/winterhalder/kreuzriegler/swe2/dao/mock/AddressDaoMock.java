@@ -3,6 +3,7 @@
  */
 package at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.mock;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IAddressDao;
@@ -10,53 +11,69 @@ import at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Address;
 
 /**
  * @author Matthias
- *
+ * 
  */
 public class AddressDaoMock implements IAddressDao {
 
-	/* (non-Javadoc)
-	 * @see at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IAddressDao#create(at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Address)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IAddressDao#create
+	 * (at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Address)
 	 */
 	@Override
 	public void create(Address a) {
-		// TODO Auto-generated method stub
-
+		a.setId(1);
 	}
 
-	/* (non-Javadoc)
-	 * @see at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IAddressDao#update(at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Address)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IAddressDao#update
+	 * (at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Address)
 	 */
 	@Override
-	public void update(Address c) {
-		// TODO Auto-generated method stub
+	public void update(Address a) {
+		a.setId(1);
 
 	}
 
-	/* (non-Javadoc)
-	 * @see at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IAddressDao#read(long)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IAddressDao#read
+	 * (long)
 	 */
 	@Override
 	public Address read(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return new Address();
 	}
 
-	/* (non-Javadoc)
-	 * @see at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IAddressDao#delete(long)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IAddressDao#delete
+	 * (long)
 	 */
 	@Override
 	public void delete(long id) {
-		// TODO Auto-generated method stub
-
 	}
 
-	/* (non-Javadoc)
-	 * @see at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IAddressDao#loadAddressesByContactId(long)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IAddressDao#
+	 * loadAddressesByContactId(long)
 	 */
 	@Override
 	public List<Address> loadAddressesByContactId(long contactId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Address> list = new ArrayList<Address>();
+		list.add(new Address());
+		return list;
 	}
 
 }
