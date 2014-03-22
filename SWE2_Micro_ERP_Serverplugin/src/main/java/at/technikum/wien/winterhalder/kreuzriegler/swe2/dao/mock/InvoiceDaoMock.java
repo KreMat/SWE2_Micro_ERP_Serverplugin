@@ -3,6 +3,7 @@
  */
 package at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.mock;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IInvoiceDao;
@@ -23,7 +24,7 @@ public class InvoiceDaoMock implements IInvoiceDao {
 	 */
 	@Override
 	public void create(Invoice i) {
-		// TODO Auto-generated method stub
+		i.setId(1);
 	}
 
 	/*
@@ -35,7 +36,7 @@ public class InvoiceDaoMock implements IInvoiceDao {
 	 */
 	@Override
 	public void update(Invoice i) {
-		// TODO Auto-generated method stub
+		i.setId(1);
 	}
 
 	/*
@@ -47,8 +48,7 @@ public class InvoiceDaoMock implements IInvoiceDao {
 	 */
 	@Override
 	public Invoice read(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return new Invoice();
 	}
 
 	/*
@@ -60,8 +60,6 @@ public class InvoiceDaoMock implements IInvoiceDao {
 	 */
 	@Override
 	public void delete(long id) {
-		// TODO Auto-generated method stub
-
 	}
 
 	/*
@@ -72,8 +70,10 @@ public class InvoiceDaoMock implements IInvoiceDao {
 	 */
 	@Override
 	public List<Invoice> loadInvoicesByContactId(long contactId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Invoice> list = new ArrayList<Invoice>();
+		list.add(new Invoice());
+		list.add(new Invoice());
+		return list;
 	}
 
 }

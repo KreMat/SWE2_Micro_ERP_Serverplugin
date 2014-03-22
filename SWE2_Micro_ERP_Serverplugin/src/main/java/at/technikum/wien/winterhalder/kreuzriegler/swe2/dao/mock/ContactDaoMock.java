@@ -3,6 +3,7 @@
  */
 package at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.mock;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IContactDao;
@@ -23,7 +24,7 @@ public class ContactDaoMock implements IContactDao {
 	 */
 	@Override
 	public void create(Contact c) {
-		// TODO Auto-generated method stub
+		c.setId(1);
 	}
 
 	/*
@@ -35,7 +36,7 @@ public class ContactDaoMock implements IContactDao {
 	 */
 	@Override
 	public void update(Contact c) {
-		// TODO Auto-generated method stub
+		c.setId(1);
 	}
 
 	/*
@@ -47,8 +48,7 @@ public class ContactDaoMock implements IContactDao {
 	 */
 	@Override
 	public Contact read(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return new Contact();
 	}
 
 	/*
@@ -60,8 +60,6 @@ public class ContactDaoMock implements IContactDao {
 	 */
 	@Override
 	public void delete(long id) {
-		// TODO Auto-generated method stub
-
 	}
 
 	/*
@@ -72,8 +70,10 @@ public class ContactDaoMock implements IContactDao {
 	 */
 	@Override
 	public List<Contact> loadAllContacts() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Contact> list = new ArrayList<Contact>();
+		list.add(new Contact());
+		list.add(new Contact());
+		return list;
 	}
 
 }
