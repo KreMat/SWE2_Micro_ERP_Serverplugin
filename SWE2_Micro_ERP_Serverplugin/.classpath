@@ -12,5 +12,9 @@
 	<classpathentry kind="lib" path="/SWE1_Webserver/gson-2.2.4.jar"/>
 	<classpathentry kind="lib" path="/SWE1_Webserver/commons-collections-3.2.1.jar"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/SWE2_Micro_ERP_Schnittstelle"/>
+	<classpathentry kind="lib" path="/SWE1_Webserver/httpclient-4.3.3.jar"/>
+	<classpathentry kind="lib" path="/SWE1_Webserver/httpclient-cache-4.3.3.jar"/>
+	<classpathentry kind="lib" path="/SWE1_Webserver/httpcore-4.3.2.jar"/>
+	<classpathentry kind="lib" path="/SWE1_Webserver/httpmime-4.3.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

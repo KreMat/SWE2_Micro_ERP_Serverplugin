@@ -208,4 +208,36 @@ public class ContactDao extends AbstractDao implements IContactDao {
 		}
 	}
 
+	@Override
+	public List<Contact> getContactsBySearchstring(String searchString) {
+		Connection con = getConnection();
+		try {
+			PreparedStatement stmt = con.prepareStatement("SELECT " + ID + ","
+					+ COMPANYNAME + "," + UID + "," + TITLE + "," + FIRSTNAME
+					+ "," + LASTNAME + "," + SUFFIX + "," + BIRTHDAY + ","
+					+ FK_CONTACT_ID + " FROM " + TABLE + " WHERE "
+					+ COMPANYNAME + " LIKE ? OR " + UID + " LIKE ? OR "
+					+ FIRSTNAME + " LIKE ? OR " + LASTNAME + " LIKE ?" + " ;");
+
+			stmt.setString(1, searchString);
+			stmt.setString(2, searchString);
+			stmt.setString(3, searchString);
+			stmt.setString(4, searchString);
+
+			ResultSet rs = stmt.executeQuery();
+
+			List<Contact> result = new ArrayList<Contact>();
+			while (rs.next()) {
+				result.add(mapContact(rs));
+			}
+
+			stmt.close();
+			return result;
+		} catch (SQLException e) {
+			throw new IllegalStateException(e);
+		} finally {
+			closeConnection();
+		}
+	}
+
 }

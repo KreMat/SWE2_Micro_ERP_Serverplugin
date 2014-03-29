@@ -23,4 +23,6 @@ public interface IContactDao {
 
 	public List<Contact> loadAllContacts();
 
+	public List<Contact> getContactsBySearchstring(String searchString);
+
 }

@@ -18,7 +18,7 @@ import java.util.List;
 
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IAddressDao;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Address;
-import at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.AddressType;
+import at.technikum.wien.winterhalder.kreuzriegler.swe2.enums.AddressType;
 
 public class AddressDao extends AbstractDao implements IAddressDao {
 

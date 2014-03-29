@@ -1,10 +1,10 @@
 package at.technikum.wien.winterhalder.kreuzriegler.swe2.helper;
 
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Address;
-import at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.AddressType;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Contact;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Invoice;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.InvoiceRow;
+import at.technikum.wien.winterhalder.kreuzriegler.swe2.enums.AddressType;
 
 public class TestHelper {
 

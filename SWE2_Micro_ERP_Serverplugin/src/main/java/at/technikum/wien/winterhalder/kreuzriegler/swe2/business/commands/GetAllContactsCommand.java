@@ -5,11 +5,7 @@ package at.technikum.wien.winterhalder.kreuzriegler.swe2.business.commands;
 
 import java.io.ByteArrayInputStream;
 
-import com.google.gson.Gson;
-
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.MicroERPConstants;
-import at.technikum.wien.winterhalder.kreuzriegler.swe2.business.ContactService;
-import at.technikum.wien.winterhalder.kreuzriegler.swe2.helper.DtoMapper;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.response.GetAllContactsResponse;
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.ResponseBuilder;
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.domain.enums.StatusCode;
@@ -17,18 +13,16 @@ import at.technikum.wien.winterhalderkreuzriegler.swe1.common.domain.interfaces.
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.domain.interfaces.Response;
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.domain.interfaces.Uri;
 
+import com.google.gson.Gson;
+
 /**
  * @author Matthias
  * 
  */
-public class GetAllContactsCommand implements ICommand {
-
-	private ContactService contactService;
-	private DtoMapper dtoMapper;
+public class GetAllContactsCommand extends AbstractCommand implements ICommand {
 
 	public GetAllContactsCommand() {
-		contactService = new ContactService();
-		dtoMapper = new DtoMapper();
+		super();
 	}
 
 	/*

@@ -76,4 +76,12 @@ public class ContactDaoMock implements IContactDao {
 		return list;
 	}
 
+	@Override
+	public List<Contact> getContactsBySearchstring(String searchString) {
+		List<Contact> list = new ArrayList<Contact>();
+		list.add(new Contact());
+		list.add(new Contact());
+		return list;
+	}
+
 }

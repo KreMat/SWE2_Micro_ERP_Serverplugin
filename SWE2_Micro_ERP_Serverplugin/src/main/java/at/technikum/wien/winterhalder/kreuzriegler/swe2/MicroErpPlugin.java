@@ -3,7 +3,10 @@
  */
 package at.technikum.wien.winterhalder.kreuzriegler.swe2;
 
+import at.technikum.wien.winterhalder.kreuzriegler.swe2.business.commands.ICommand;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.factory.CommandFactory;
+import at.technikum.wien.winterhalderkreuzriegler.swe1.common.ResponseBuilder;
+import at.technikum.wien.winterhalderkreuzriegler.swe1.common.domain.enums.StatusCode;
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.domain.interfaces.Request;
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.domain.interfaces.Response;
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.domain.interfaces.Uri;
@@ -27,7 +30,15 @@ public class MicroErpPlugin implements Pluggable {
 	 */
 	@Override
 	public Response request(Uri uri, Request request) {
-		return CommandFactory.createCommand(uri).handleRequest(uri, request);
+		ICommand command = CommandFactory.createCommand(uri);
+		if (command == null) {
+			return errorResponse();
+		}
+		return command.handleRequest(uri, request);
+	}
+
+	private Response errorResponse() {
+		return ResponseBuilder.buildResponse(StatusCode.STATUS_404);
 	}
 
 	/*

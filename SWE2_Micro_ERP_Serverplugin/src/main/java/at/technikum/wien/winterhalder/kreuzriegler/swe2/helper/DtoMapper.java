@@ -1,6 +1,7 @@
 package at.technikum.wien.winterhalder.kreuzriegler.swe2.helper;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.beanutils.BeanUtils;
@@ -13,9 +14,7 @@ public class DtoMapper {
 
 	public GetAllContactsResponse mapAllContacts(List<Contact> contacts) {
 		GetAllContactsResponse dto = new GetAllContactsResponse();
-		for (Contact c : contacts) {
-			dto.getContacts().add(mapContact(c));
-		}
+		dto.setContacts(mapContacts(contacts));
 		return dto;
 	}
 
@@ -27,6 +26,14 @@ public class DtoMapper {
 			throw new IllegalStateException(e);
 		}
 		return dto;
+	}
+
+	public List<ContactDto> mapContacts(List<Contact> contacts) {
+		List<ContactDto> result = new ArrayList<ContactDto>();
+		for (Contact c : contacts) {
+			result.add(mapContact(c));
+		}
+		return result;
 	}
 
 }

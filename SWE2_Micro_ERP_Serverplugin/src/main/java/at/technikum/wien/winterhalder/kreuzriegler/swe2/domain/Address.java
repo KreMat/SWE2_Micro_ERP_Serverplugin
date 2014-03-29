@@ -3,6 +3,8 @@
  */
 package at.technikum.wien.winterhalder.kreuzriegler.swe2.domain;
 
+import at.technikum.wien.winterhalder.kreuzriegler.swe2.enums.AddressType;
+
 /**
  * @author Matthias
  * 

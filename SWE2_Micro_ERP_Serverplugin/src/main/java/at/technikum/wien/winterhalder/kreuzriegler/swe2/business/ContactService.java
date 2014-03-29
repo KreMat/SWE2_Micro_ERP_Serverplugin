@@ -41,4 +41,8 @@ public class ContactService {
 		return contactDao.loadAllContacts();
 	}
 
+	public List<Contact> getContactsBySearchstring(String searchString) {
+		return contactDao.getContactsBySearchstring(searchString);
+	}
+
 }
