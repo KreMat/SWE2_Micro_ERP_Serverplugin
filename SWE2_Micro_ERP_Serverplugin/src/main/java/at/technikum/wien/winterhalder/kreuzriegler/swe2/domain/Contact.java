@@ -4,6 +4,10 @@
 package at.technikum.wien.winterhalder.kreuzriegler.swe2.domain;
 
 import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.Map;
+
+import at.technikum.wien.winterhalder.kreuzriegler.swe2.enums.AddressType;
 
 /**
  * @author Matthias
@@ -35,6 +39,8 @@ public class Contact extends AbstractEntity {
 	private String suffix;
 
 	private Timestamp birthday;
+
+	private Map<AddressType, Address> addresses = new HashMap<AddressType, Address>();
 
 	private Long companyId;
 
@@ -156,6 +162,21 @@ public class Contact extends AbstractEntity {
 	 */
 	public void setBirthday(Timestamp birthday) {
 		this.birthday = birthday;
+	}
+
+	/**
+	 * @return the addresses
+	 */
+	public Map<AddressType, Address> getAddresses() {
+		return addresses;
+	}
+
+	/**
+	 * @param addresses
+	 *            the addresses to set
+	 */
+	public void setAddresses(Map<AddressType, Address> addresses) {
+		this.addresses = addresses;
 	}
 
 }

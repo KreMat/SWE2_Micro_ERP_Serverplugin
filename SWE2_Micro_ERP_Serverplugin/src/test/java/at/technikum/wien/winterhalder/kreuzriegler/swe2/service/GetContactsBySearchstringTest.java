@@ -34,7 +34,6 @@ import com.google.gson.Gson;
  */
 public class GetContactsBySearchstringTest extends Assert {
 
-	@SuppressWarnings("deprecation")
 	@Test
 	public void testSearchString() throws URISyntaxException, IOException {
 		HttpClient client = HttpClientBuilder.create().build();

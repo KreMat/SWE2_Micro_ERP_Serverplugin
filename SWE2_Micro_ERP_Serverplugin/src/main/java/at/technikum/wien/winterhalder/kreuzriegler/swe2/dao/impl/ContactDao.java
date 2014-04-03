@@ -23,14 +23,23 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
+import at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IAddressDao;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IContactDao;
+import at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Address;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Contact;
+import at.technikum.wien.winterhalder.kreuzriegler.swe2.factory.DaoFactory;
 
 /**
  * @author Matthias
  * 
  */
 public class ContactDao extends AbstractDao implements IContactDao {
+
+	private IAddressDao addressDao;
+
+	public ContactDao() {
+		this.addressDao = DaoFactory.createAddressDao();
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -140,6 +149,9 @@ public class ContactDao extends AbstractDao implements IContactDao {
 			Contact c = null;
 			if (rs.next()) {
 				c = mapContact(rs);
+				for (Address a : addressDao.loadAddressesByContactId(id)) {
+					c.getAddresses().put(a.getType(), a);
+				}
 			}
 
 			stmt.close();
@@ -196,7 +208,11 @@ public class ContactDao extends AbstractDao implements IContactDao {
 
 			List<Contact> result = new ArrayList<Contact>();
 			while (rs.next()) {
-				result.add(mapContact(rs));
+				Contact c = mapContact(rs);
+				for (Address a : addressDao.loadAddressesByContactId(c.getId())) {
+					c.getAddresses().put(a.getType(), a);
+				}
+				result.add(c);
 			}
 
 			stmt.close();
@@ -228,7 +244,11 @@ public class ContactDao extends AbstractDao implements IContactDao {
 
 			List<Contact> result = new ArrayList<Contact>();
 			while (rs.next()) {
-				result.add(mapContact(rs));
+				Contact c = mapContact(rs);
+				for (Address a : addressDao.loadAddressesByContactId(c.getId())) {
+					c.getAddresses().put(a.getType(), a);
+				}
+				result.add(c);
 			}
 
 			stmt.close();
