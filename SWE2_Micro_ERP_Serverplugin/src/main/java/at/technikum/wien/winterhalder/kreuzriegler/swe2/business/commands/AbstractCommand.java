@@ -53,6 +53,7 @@ public abstract class AbstractCommand {
 			StringWriter wr = new StringWriter();
 			for (long i = 0; i < request.getContentLength(); i++) {
 				wr.write(reader.read());
+				System.out.println(wr.toString());
 			}
 			wr.close();
 			String decodedParams = URLDecoder.decode(wr.toString(), "UTF-8");

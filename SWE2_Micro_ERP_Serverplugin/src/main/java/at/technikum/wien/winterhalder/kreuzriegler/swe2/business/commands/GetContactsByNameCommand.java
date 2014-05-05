@@ -36,5 +36,4 @@ public class GetContactsByNameCommand extends AbstractCommand implements
 				contacts);
 		return createResponse(response);
 	}
-
 }
