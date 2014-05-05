@@ -65,4 +65,64 @@ public abstract class AbstractCommand {
 		return null;
 	}
 
+	/**
+	 * @return the contactService
+	 */
+	public ContactService getContactService() {
+		return contactService;
+	}
+
+	/**
+	 * @param contactService
+	 *            the contactService to set
+	 */
+	public void setContactService(ContactService contactService) {
+		this.contactService = contactService;
+	}
+
+	/**
+	 * @return the invoiceService
+	 */
+	public InvoiceService getInvoiceService() {
+		return invoiceService;
+	}
+
+	/**
+	 * @param invoiceService
+	 *            the invoiceService to set
+	 */
+	public void setInvoiceService(InvoiceService invoiceService) {
+		this.invoiceService = invoiceService;
+	}
+
+	/**
+	 * @return the dtoMapper
+	 */
+	public DtoMapper getDtoMapper() {
+		return dtoMapper;
+	}
+
+	/**
+	 * @param dtoMapper
+	 *            the dtoMapper to set
+	 */
+	public void setDtoMapper(DtoMapper dtoMapper) {
+		this.dtoMapper = dtoMapper;
+	}
+
+	/**
+	 * @return the gson
+	 */
+	public Gson getGson() {
+		return gson;
+	}
+
+	/**
+	 * @param gson
+	 *            the gson to set
+	 */
+	public void setGson(Gson gson) {
+		this.gson = gson;
+	}
+
 }

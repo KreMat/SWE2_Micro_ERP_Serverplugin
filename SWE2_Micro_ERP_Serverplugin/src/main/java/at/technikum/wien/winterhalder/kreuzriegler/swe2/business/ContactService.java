@@ -95,4 +95,32 @@ public class ContactService {
 		return contacts;
 	}
 
+	/**
+	 * @return the contactDao
+	 */
+	public IContactDao getContactDao() {
+		return contactDao;
+	}
+
+	/**
+	 * @param contactDao the contactDao to set
+	 */
+	public void setContactDao(IContactDao contactDao) {
+		this.contactDao = contactDao;
+	}
+
+	/**
+	 * @return the addressDao
+	 */
+	public IAddressDao getAddressDao() {
+		return addressDao;
+	}
+
+	/**
+	 * @param addressDao the addressDao to set
+	 */
+	public void setAddressDao(IAddressDao addressDao) {
+		this.addressDao = addressDao;
+	}
+
 }
