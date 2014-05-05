@@ -23,11 +23,8 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
-import at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IAddressDao;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.dao.IContactDao;
-import at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Address;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Contact;
-import at.technikum.wien.winterhalder.kreuzriegler.swe2.factory.DaoFactory;
 
 /**
  * @author Matthias
@@ -35,10 +32,7 @@ import at.technikum.wien.winterhalder.kreuzriegler.swe2.factory.DaoFactory;
  */
 public class ContactDao extends AbstractDao implements IContactDao {
 
-	private IAddressDao addressDao;
-
 	public ContactDao() {
-		this.addressDao = DaoFactory.createAddressDao();
 	}
 
 	/*
@@ -149,9 +143,6 @@ public class ContactDao extends AbstractDao implements IContactDao {
 			Contact c = null;
 			if (rs.next()) {
 				c = mapContact(rs);
-				for (Address a : addressDao.loadAddressesByContactId(id)) {
-					c.getAddresses().put(a.getType(), a);
-				}
 			}
 
 			stmt.close();
@@ -209,9 +200,6 @@ public class ContactDao extends AbstractDao implements IContactDao {
 			List<Contact> result = new ArrayList<Contact>();
 			while (rs.next()) {
 				Contact c = mapContact(rs);
-				for (Address a : addressDao.loadAddressesByContactId(c.getId())) {
-					c.getAddresses().put(a.getType(), a);
-				}
 				result.add(c);
 			}
 
@@ -245,9 +233,65 @@ public class ContactDao extends AbstractDao implements IContactDao {
 			List<Contact> result = new ArrayList<Contact>();
 			while (rs.next()) {
 				Contact c = mapContact(rs);
-				for (Address a : addressDao.loadAddressesByContactId(c.getId())) {
-					c.getAddresses().put(a.getType(), a);
-				}
+				result.add(c);
+			}
+
+			stmt.close();
+			return result;
+		} catch (SQLException e) {
+			throw new IllegalStateException(e);
+		} finally {
+			closeConnection();
+		}
+	}
+
+	@Override
+	public List<Contact> getCompaniesByName(String name) {
+		Connection con = getConnection();
+		try {
+			PreparedStatement stmt = con.prepareStatement("SELECT " + ID + ","
+					+ COMPANYNAME + "," + UID + "," + TITLE + "," + FIRSTNAME
+					+ "," + LASTNAME + "," + SUFFIX + "," + BIRTHDAY + ","
+					+ FK_CONTACT_ID + " FROM " + TABLE + " WHERE "
+					+ COMPANYNAME + " LIKE ? ;");
+
+			stmt.setString(1, name);
+
+			ResultSet rs = stmt.executeQuery();
+
+			List<Contact> result = new ArrayList<Contact>();
+			while (rs.next()) {
+				Contact c = mapContact(rs);
+				result.add(c);
+			}
+
+			stmt.close();
+			return result;
+		} catch (SQLException e) {
+			throw new IllegalStateException(e);
+		} finally {
+			closeConnection();
+		}
+	}
+
+	@Override
+	public List<Contact> getContactsByName(String name) {
+		Connection con = getConnection();
+		try {
+			PreparedStatement stmt = con.prepareStatement("SELECT " + ID + ","
+					+ COMPANYNAME + "," + UID + "," + TITLE + "," + FIRSTNAME
+					+ "," + LASTNAME + "," + SUFFIX + "," + BIRTHDAY + ","
+					+ FK_CONTACT_ID + " FROM " + TABLE + " WHERE " + FIRSTNAME
+					+ " LIKE ? OR " + LASTNAME + " LIKE ?" + " ;");
+
+			stmt.setString(1, name);
+			stmt.setString(2, name);
+
+			ResultSet rs = stmt.executeQuery();
+
+			List<Contact> result = new ArrayList<Contact>();
+			while (rs.next()) {
+				Contact c = mapContact(rs);
 				result.add(c);
 			}
 

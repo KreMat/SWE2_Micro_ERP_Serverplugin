@@ -13,7 +13,7 @@ import at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.InvoiceRow;
  * @author Matthias
  * 
  */
-public class InvoiceRowMock implements IInvoiceRowDao {
+public class InvoiceRowDaoMock implements IInvoiceRowDao {
 
 	/*
 	 * (non-Javadoc)

@@ -25,4 +25,8 @@ public interface IContactDao {
 
 	public List<Contact> getContactsBySearchstring(String searchString);
 
+	public List<Contact> getCompaniesByName(String name);
+
+	public List<Contact> getContactsByName(String name);
+
 }

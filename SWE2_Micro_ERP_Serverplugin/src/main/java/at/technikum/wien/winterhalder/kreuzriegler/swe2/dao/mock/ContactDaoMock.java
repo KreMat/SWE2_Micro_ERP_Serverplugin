@@ -84,4 +84,14 @@ public class ContactDaoMock implements IContactDao {
 		return list;
 	}
 
+	@Override
+	public List<Contact> getCompaniesByName(String name) {
+		return loadAllContacts();
+	}
+
+	@Override
+	public List<Contact> getContactsByName(String name) {
+		return loadAllContacts();
+	}
+
 }

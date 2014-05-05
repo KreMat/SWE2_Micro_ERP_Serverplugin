@@ -11,6 +11,7 @@ import java.net.URLDecoder;
 
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.MicroERPConstants;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.business.ContactService;
+import at.technikum.wien.winterhalder.kreuzriegler.swe2.business.InvoiceService;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.helper.DtoMapper;
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.ResponseBuilder;
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.domain.enums.StatusCode;
@@ -26,11 +27,13 @@ import com.google.gson.Gson;
 public abstract class AbstractCommand {
 
 	protected ContactService contactService;
+	protected InvoiceService invoiceService;
 	protected DtoMapper dtoMapper;
 	protected Gson gson;
 
 	protected AbstractCommand() {
 		contactService = new ContactService();
+		invoiceService = new InvoiceService();
 		dtoMapper = new DtoMapper();
 		gson = new Gson();
 	}

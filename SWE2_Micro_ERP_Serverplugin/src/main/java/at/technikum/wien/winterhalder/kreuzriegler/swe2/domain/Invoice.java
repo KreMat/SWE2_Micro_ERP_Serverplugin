@@ -140,4 +140,8 @@ public class Invoice extends AbstractEntity {
 		this.contactId = contactId;
 	}
 
+	public void addRow(InvoiceRow row) {
+		rows.add(row);
+	}
+
 }

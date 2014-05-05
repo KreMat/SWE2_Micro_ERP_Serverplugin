@@ -5,6 +5,7 @@ package at.technikum.wien.winterhalder.kreuzriegler.swe2.domain;
 
 import java.sql.Timestamp;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.enums.AddressType;
@@ -179,4 +180,14 @@ public class Contact extends AbstractEntity {
 		this.addresses = addresses;
 	}
 
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = new HashMap<AddressType, Address>();
+		for (Address a : addresses) {
+			this.addresses.put(a.getType(), a);
+		}
+	}
+
+	public void addAddress(AddressType key, Address address) {
+		this.addresses.put(key, address);
+	}
 }
