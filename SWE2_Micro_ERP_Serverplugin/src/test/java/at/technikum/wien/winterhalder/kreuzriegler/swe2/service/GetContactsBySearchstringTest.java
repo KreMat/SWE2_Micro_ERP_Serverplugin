@@ -16,6 +16,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.Uris;
@@ -35,6 +36,7 @@ import com.google.gson.Gson;
 public class GetContactsBySearchstringTest extends Assert {
 
 	@Test
+	@Ignore
 	public void testSearchString() throws URISyntaxException, IOException {
 		HttpClient client = HttpClientBuilder.create().build();
 		HttpPost post = new HttpPost(new URI("http", null, "localhost",

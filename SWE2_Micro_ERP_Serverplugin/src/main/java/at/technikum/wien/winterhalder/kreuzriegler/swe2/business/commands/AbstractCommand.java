@@ -11,6 +11,7 @@ import java.net.URLDecoder;
 
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.MicroERPConstants;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.business.ContactService;
+import at.technikum.wien.winterhalder.kreuzriegler.swe2.business.InvoiceService;
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.helper.DtoMapper;
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.ResponseBuilder;
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.domain.enums.StatusCode;
@@ -26,11 +27,13 @@ import com.google.gson.Gson;
 public abstract class AbstractCommand {
 
 	protected ContactService contactService;
+	protected InvoiceService invoiceService;
 	protected DtoMapper dtoMapper;
 	protected Gson gson;
 
 	protected AbstractCommand() {
 		contactService = new ContactService();
+		invoiceService = new InvoiceService();
 		dtoMapper = new DtoMapper();
 		gson = new Gson();
 	}
@@ -50,6 +53,7 @@ public abstract class AbstractCommand {
 			StringWriter wr = new StringWriter();
 			for (long i = 0; i < request.getContentLength(); i++) {
 				wr.write(reader.read());
+				System.out.println(wr.toString());
 			}
 			wr.close();
 			String decodedParams = URLDecoder.decode(wr.toString(), "UTF-8");
@@ -60,6 +64,66 @@ public abstract class AbstractCommand {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	/**
+	 * @return the contactService
+	 */
+	public ContactService getContactService() {
+		return contactService;
+	}
+
+	/**
+	 * @param contactService
+	 *            the contactService to set
+	 */
+	public void setContactService(ContactService contactService) {
+		this.contactService = contactService;
+	}
+
+	/**
+	 * @return the invoiceService
+	 */
+	public InvoiceService getInvoiceService() {
+		return invoiceService;
+	}
+
+	/**
+	 * @param invoiceService
+	 *            the invoiceService to set
+	 */
+	public void setInvoiceService(InvoiceService invoiceService) {
+		this.invoiceService = invoiceService;
+	}
+
+	/**
+	 * @return the dtoMapper
+	 */
+	public DtoMapper getDtoMapper() {
+		return dtoMapper;
+	}
+
+	/**
+	 * @param dtoMapper
+	 *            the dtoMapper to set
+	 */
+	public void setDtoMapper(DtoMapper dtoMapper) {
+		this.dtoMapper = dtoMapper;
+	}
+
+	/**
+	 * @return the gson
+	 */
+	public Gson getGson() {
+		return gson;
+	}
+
+	/**
+	 * @param gson
+	 *            the gson to set
+	 */
+	public void setGson(Gson gson) {
+		this.gson = gson;
 	}
 
 }

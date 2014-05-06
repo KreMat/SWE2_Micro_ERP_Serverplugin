@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.domain.Contact;
-import at.technikum.wien.winterhalder.kreuzriegler.swe2.response.GetAllContactsResponse;
+import at.technikum.wien.winterhalder.kreuzriegler.swe2.dto.ContactDto;
 
 public class DtoMapperTest {
 
@@ -26,9 +26,9 @@ public class DtoMapperTest {
 		list.add(helper.createDefaultCompany());
 		list.add(helper.createDefaultCompany());
 
-		GetAllContactsResponse dto = mapper.mapAllContacts(list);
+		List<ContactDto> contacts = mapper.mapContacts(list);
 
-		Assert.assertFalse(dto.getContacts().isEmpty());
+		Assert.assertFalse(contacts.isEmpty());
 
 	}
 }

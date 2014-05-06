@@ -6,8 +6,8 @@ package at.technikum.wien.winterhalder.kreuzriegler.swe2.business.commands;
 import java.util.List;
 
 import at.technikum.wien.winterhalder.kreuzriegler.swe2.dto.ContactDto;
-import at.technikum.wien.winterhalder.kreuzriegler.swe2.request.GetContactsBySearchstringRequest;
-import at.technikum.wien.winterhalder.kreuzriegler.swe2.response.GetContactsBySearchstringResponse;
+import at.technikum.wien.winterhalder.kreuzriegler.swe2.request.GetContactsByNameRequest;
+import at.technikum.wien.winterhalder.kreuzriegler.swe2.response.GetContactsByNameResponse;
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.domain.interfaces.Request;
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.domain.interfaces.Response;
 import at.technikum.wien.winterhalderkreuzriegler.swe1.common.domain.interfaces.Uri;
@@ -16,25 +16,24 @@ import at.technikum.wien.winterhalderkreuzriegler.swe1.common.domain.interfaces.
  * @author Matthias
  * 
  */
-public class GetContactsBySearchstringCommand extends AbstractCommand implements
+public class GetContactsByNameCommand extends AbstractCommand implements
 		ICommand {
 
-	public GetContactsBySearchstringCommand() {
+	public GetContactsByNameCommand() {
 		super();
 	}
 
 	@Override
 	public Response handleRequest(Uri uri, Request request) {
 		String jsonRequest = getJsonRequest(request);
-		GetContactsBySearchstringRequest r = gson.fromJson(jsonRequest,
-				GetContactsBySearchstringRequest.class);
+		GetContactsByNameRequest r = gson.fromJson(jsonRequest,
+				GetContactsByNameRequest.class);
 
-		List<ContactDto> contactList = dtoMapper.mapContacts(contactService
-				.getContactsBySearchstring(r.getSearchString()));
+		List<ContactDto> contacts = dtoMapper.mapContacts(contactService
+				.getContactsByName(r.getName()));
 
-		GetContactsBySearchstringResponse response = new GetContactsBySearchstringResponse();
-		response.setContacts(contactList);
+		GetContactsByNameResponse response = new GetContactsByNameResponse(
+				contacts);
 		return createResponse(response);
 	}
-
 }
