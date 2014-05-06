@@ -1,6 +1,3 @@
-/**
- * 
- */
 package at.technikum.wien.winterhalder.kreuzriegler.swe2.business.commands;
 
 import java.util.ArrayList;
